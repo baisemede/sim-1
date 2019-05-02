@@ -8,14 +8,14 @@
         ref="wechatmessage"
       >
         <el-form-item class="text-a" label="消息标题" prop="title">
-          <el-input v-model="wechatmessage.title"></el-input>
+          <el-input v-model="wechatmessage.title"/>
         </el-form-item>
         <el-form-item class="text-a" label="消息内容">
           <el-input
             type="textarea"
             :autosize="{ minRows: 3, maxRows: 8}"
             v-model="wechatmessage.desp"
-          ></el-input>
+          />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('wechatmessage')">发送消息</el-button>
@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import auth from "../axios/auth.js";
+/* import auth from "../axios/auth.js"; */
 export default {
-  name: "servercyan",
+  name: "ServerCyan",
   data() {
     return {
       labelPosition: "top",
@@ -36,7 +36,7 @@ export default {
         title: "",
         desp: ""
       },
-      //对比和上次的内容是否相同
+      /*对比和上次的内容是否相同*/
       title1: "",
       desp1: "",
       rules: {

@@ -1,11 +1,11 @@
 <template>
   <div :class="{animated:isshow,rotateInUpLeft:isshow}" class="box">
     <el-card class="box-card">
-      <div slot="header" >
-        <span class="hitikoto-from">{{hitikoto.from}}</span>
+      <div slot="header">
+        <span class="hitikoto-from">{{ hitikoto.from }}</span>
       </div>
-      <div class="hitikoto">{{hitikoto.hitokoto}}</div>
-      <div class="hitikoto-time">{{time}}</div>
+      <div class="hitikoto">{{ hitikoto.hitokoto }}</div>
+      <div class="hitikoto-time">{{ time }}</div>
     </el-card>
   </div>
 </template>
@@ -44,8 +44,8 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.box{
-    width: 50%;
+.box {
+  width: 50%;
 }
 .box-card {
   width: 480px;

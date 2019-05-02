@@ -1,26 +1,26 @@
+
 <template>
   <div>
     <div class="weather-input">
-      <el-input v-model="location" placeholder="请输入查询的城市" @keyup.enter.native="serchweather"></el-input>
+      <el-input v-model="location" placeholder="请输入查询的城市" @keyup.enter.native="serchweather"/>
       <el-button type="primary" icon="el-icon-search" @click="serchweather">查询</el-button>
     </div>
     <div v-if="isshow && air.length!==0">
-      <el-card class="box-card" v-for="(item,index) in HeWeather6">
+      <el-card class="box-card" v-for="(item,index) in HeWeather6" :key="index">
         <div slot="header">
-          <span>{{item.basic.location}}</span>
+          <span>{{ item.basic.location }}</span>
         </div>
         <div>
-          <p class="tmp">{{item.now.tmp}}°C</p>
-
-          <p class="cond_txt">{{item.now.cond_txt}}</p>
+          <p class="tmp">{{ item.now.tmp }}°C</p>
+          <p class="cond_txt">{{ item.now.cond_txt }}</p>
         </div>
         <div class="footer">
           <p>
-            <span v-cloak>空气{{air.air_now_city.qlty}}</span>&nbsp
-            <span>{{air.air_now_city.aqi}}</span>
+            <span v-cloak>空气{{ air.air_now_city.qlty }}</span>
+            <span>{{ air.air_now_city.aqi }}</span>
           </p>
           <p>|</p>
-          <p>{{item.now.wind_dir}}</p>
+          <p>{{ item.now.wind_dir }}</p>
         </div>
       </el-card>
     </div>
@@ -51,6 +51,7 @@ export default {
           }&key=${this.key}`
         )
         .then(res => {
+          // eslint-disable-next-line no-console
           console.log("TCL: getweather -> res", res);
           if (res.data.HeWeather6[0].status === "ok") {
             this.HeWeather6 = res.data.HeWeather6;
@@ -60,6 +61,7 @@ export default {
             this.location = "";
           }
         })
+        // eslint-disable-next-line no-unused-vars
         .catch(err => {});
     },
     getair() {
@@ -80,6 +82,7 @@ export default {
           }
         })
         .catch(err => {
+          console.log("TCL: getair -> err", err);
           /* ; */
         });
     }
