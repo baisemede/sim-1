@@ -12,6 +12,9 @@
     <el-tab-pane label="一言" name="Hitokoto">
       <Hitokoto/>
     </el-tab-pane>
+    <el-tab-pane label="中日节假日" name="holiday">
+      <Holiday/>
+    </el-tab-pane>
   </el-tabs>
 </template>
 <script>
@@ -19,6 +22,7 @@ import servercyan from "./servercyan";
 import DayJs from "./DayJs";
 import Heweather from "./Heweather";
 import Hitokoto from "./Hitokoto";
+import Holiday from "./Holiday";
 export default {
   data() {
     return {
@@ -29,7 +33,8 @@ export default {
     servercyan,
     DayJs,
     Heweather,
-    Hitokoto
+    Hitokoto,
+    Holiday
   }
 };
 </script>
