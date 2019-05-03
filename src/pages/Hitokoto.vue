@@ -29,9 +29,15 @@ export default {
     gethitikoto() {
       this.$http.get("https://international.v1.hitokoto.cn/").then(res => {
         /* console.log("TCL: grthitikoto -> res", res); */
-        this.hitikoto = res.data;
-        this.time = this.$dayjs.unix(res.data.created_at).format("YYYY-MM-DD");
-        this.toggle();
+        /* this.toggle(); */
+        this.isshow = false;
+        setTimeout(() => {
+          this.isshow = true;
+          this.hitikoto = res.data;
+          this.time = this.$dayjs
+            .unix(res.data.created_at)
+            .format("YYYY-MM-DD");
+        }, 300);
       });
     },
     toggle() {
